@@ -128,6 +128,8 @@ Crearea unei aplicații Web, scrierea testelor pentru aceasta și configurarea i
 9. Testarea GitHub Actions:
    După trimiterea codului în repositoriul GitHub, GitHub Actions va rula automat testele definite în workflow. Putem verifica rezultatele în fila Actions din repositoriu.
 
+   ![Site folder](./images/rezultat.png)
+
 ## Răspunsuri la întrebări
 
 1. **Ce este integrarea continuă?**
