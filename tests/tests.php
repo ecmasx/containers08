@@ -2,9 +2,18 @@
 
 require_once __DIR__ . '/testframework.php';
 
-require_once __DIR__ . '/../site/config.php';
-require_once __DIR__ . '/../site/modules/database.php';
-require_once __DIR__ . '/../site/modules/page.php';
+// Update paths for Docker environment
+if (file_exists('/var/www/html/config.php')) {
+    // We're in the container
+    require_once '/var/www/html/config.php';
+    require_once '/var/www/html/modules/database.php';
+    require_once '/var/www/html/modules/page.php';
+} else {
+    // We're in local development
+    require_once __DIR__ . '/../site/config.php';
+    require_once __DIR__ . '/../site/modules/database.php';
+    require_once __DIR__ . '/../site/modules/page.php';
+}
 
 $tests = new TestFramework();
 
@@ -150,7 +159,12 @@ function testDbDelete() {
 // test 8: test Page class
 function testPageRender() {
     try {
-        $page = new Page(__DIR__ . '/../site/templates/index.tpl');
+        // Use the correct template path based on environment
+        $templatePath = file_exists('/var/www/html/templates/index.tpl') ? 
+            '/var/www/html/templates/index.tpl' : 
+            __DIR__ . '/../site/templates/index.tpl';
+        
+        $page = new Page($templatePath);
         $data = [
             'title' => 'Test Title',
             'subtitle' => 'Test Subtitle',

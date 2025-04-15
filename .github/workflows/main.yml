@@ -16,11 +16,11 @@ jobs:
       - name: Create `container`
         run: docker create --name container --volume database:/var/www/db containers08
       - name: Copy tests to the container
-        run: docker cp ./tests container:/var/www/html
+        run: docker cp ./tests container:/var/www/
       - name: Up the container
         run: docker start container
       - name: Run tests
-        run: docker exec container php /var/www/html/tests/tests.php
+        run: docker exec container php /var/www/tests/tests.php
       - name: Stop the container
         run: docker stop container
       - name: Remove the container
