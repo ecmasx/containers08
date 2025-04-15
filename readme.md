@@ -15,7 +15,6 @@ Crearea unei aplicații Web, scrierea testelor pentru aceasta și configurarea i
 
 2. Am creat in directorul ./site urmatoarea structura:
    ![Site folder](./images/structura%201.png)
-   ![Site folder](./images/structura%202.png)
 
 3. Am creat fișierele necesare pentru aplicația web PHP:
    ![Site folder](./images/structura%202.png)
